@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "UIColor+YYAdd.h"
+#import "MainTabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,10 +18,31 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    MainTabBarViewController *tabBarController = [[MainTabBarViewController alloc] init];
+    self.window.rootViewController = tabBarController;
+    tabBarController.selectedIndex = 0;
+    [self.window makeKeyAndVisible];
+    [self setupAppearance];
     return YES;
 }
 
+- (void)setupAppearance {
+    // 导航栏全局属性设置：背景、左右标题的文字、标题文字
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRGB:0x36363B]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    NSDictionary *titleTextAttrs = @{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                     NSFontAttributeName:[UIFont boldSystemFontOfSize:17]};
+    [[UINavigationBar appearance] setTitleTextAttributes:titleTextAttrs];
+   
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+
+    UIImage *backImage = [UIImage imageNamed:@"NavigationBarBackBlackIcon"];
+    [[UINavigationBar appearance] setBackIndicatorImage:backImage];
+    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:backImage];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

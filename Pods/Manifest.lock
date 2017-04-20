@@ -1,12 +1,17 @@
 PODS:
-  - MBProgressHUD (0.9.2)
+  - MBProgressHUD (1.0.0)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
-  - MBProgressHUD (~> 0.9.2)
+  - MBProgressHUD (~> 1.0.0)
+  - YYKit (~> 1.0.9)
 
 SPEC CHECKSUMS:
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: aa71ef63c9347864957c00da3859d23530d79e5a
+PODFILE CHECKSUM: f55d6d22a3281f89bb9a8a5f1627d46f95542d61
 
 COCOAPODS: 1.2.0
