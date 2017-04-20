@@ -16,6 +16,8 @@
 
 @interface MainTabBarViewController ()
 
+@property(nonatomic,assign)NSInteger indexFlag;
+
 @end
 
 @implementation MainTabBarViewController
@@ -24,6 +26,7 @@
     [super viewDidLoad];
     [self setupViewController];
     self.selectedIndex = 0;
+    self.indexFlag = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +48,6 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [self.selectedViewController endAppearanceTransition];
 }
-
 
 - (void)setupViewController {
     FirstViewController *firstVC = [[FirstViewController alloc]init];
@@ -83,6 +85,33 @@
     
     NSDictionary *selectedAttr = @{NSForegroundColorAttributeName:[UIColor colorWithRGB:0x1FB922], NSFontAttributeName:[UIFont systemFontOfSize:12]};
     [[UITabBarItem appearance] setTitleTextAttributes:selectedAttr forState:UIControlStateSelected];
+}
+
+#pragma mark - 给tabBar添加动画
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    NSInteger index = [self.tabBar.items indexOfObject:item];
+    if (self.indexFlag != index) {
+        [self animationWithIndex:index];
+    }
+}
+
+- (void)animationWithIndex:(NSInteger)index {
+    NSMutableArray *tabBarButtonArray = [NSMutableArray array];
+    for (UIView *tabBarButton in self.tabBar.subviews) {
+        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [tabBarButtonArray addObject:tabBarButton];
+        }
+    }
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.duration = 0.1;
+    animation.repeatCount = 1;
+    animation.autoreverses = YES;
+    animation.fromValue = [NSNumber numberWithFloat:0.7];
+    animation.toValue = [NSNumber numberWithFloat:1.2];
+    [[tabBarButtonArray[index] layer] addAnimation:animation forKey:nil];
+    self.indexFlag = index;
 }
 
 @end
