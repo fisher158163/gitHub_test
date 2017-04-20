@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <AVFoundation/AVFoundation.h>
 #import "UIColor+YYAdd.h"
 #import "MainTabBarViewController.h"
 #import "MusicViewController.h"
@@ -25,6 +26,13 @@
     [self.window makeKeyAndVisible];
     [self setupAppearance];
     [self setup3DTouch];
+    
+    //1.获取音频会话
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    //2.设置后台播放类型
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    //3.激活会话
+    [session setActive:YES error:nil];
     return YES;
 }
 
