@@ -76,7 +76,7 @@ typedef NS_ENUM(NSInteger, RotateState){
 #pragma mark - 旋转动画
 
 - (void)rotateAnimate {
-    imageAngel += 50;
+    imageAngel += 60;
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
         rotateImage.transform = CGAffineTransformMakeRotation(kDEGRE_TO_RADIANS(imageAngel));
     } completion:^(BOOL finished) {
@@ -89,7 +89,7 @@ typedef NS_ENUM(NSInteger, RotateState){
 #pragma mark - 开始播放音乐
 
 - (void)playMusic {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"电音之王" ofType:@"mp3"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"成都" ofType:@"mp3"];
     NSURL *musicUrl = [[NSURL alloc]initFileURLWithPath:filePath];
     _audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:musicUrl error:nil];
     [_audioPlayer prepareToPlay];
