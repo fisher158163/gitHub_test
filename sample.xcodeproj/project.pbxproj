@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		31CAB1214AB9B522B6FEBF05 /* libPods-sample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E3102891EAD907D9C01FF4 /* libPods-sample.a */; };
+		601FB4BE1EA88D8E00F5D309 /* 电音之王.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 601FB4BD1EA88D8E00F5D309 /* 电音之王.mp3 */; };
 		6070D3091EA7019D00BD6954 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D3081EA7019D00BD6954 /* main.m */; };
 		6070D30C1EA7019D00BD6954 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070D30B1EA7019D00BD6954 /* AppDelegate.m */; };
 		6070D3121EA7019D00BD6954 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6070D3101EA7019D00BD6954 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		3140E750EE1AE6D5ADDE834C /* Pods-sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sample.release.xcconfig"; path = "Pods/Target Support Files/Pods-sample/Pods-sample.release.xcconfig"; sourceTree = "<group>"; };
+		601FB4BD1EA88D8E00F5D309 /* 电音之王.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "电音之王.mp3"; sourceTree = "<group>"; };
 		6070D3041EA7019D00BD6954 /* sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6070D3081EA7019D00BD6954 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6070D30A1EA7019D00BD6954 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		601FB4BC1EA88D7600F5D309 /* musicResources */ = {
+			isa = PBXGroup;
+			children = (
+				601FB4BD1EA88D8E00F5D309 /* 电音之王.mp3 */,
+			);
+			path = musicResources;
+			sourceTree = "<group>";
+		};
 		6070D2FB1EA7019D00BD6954 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 		6070D3061EA7019D00BD6954 /* sample */ = {
 			isa = PBXGroup;
 			children = (
+				601FB4BC1EA88D7600F5D309 /* musicResources */,
 				6085C49B1EA84A1F009CB0CF /* Base */,
 				6085C4A21EA84B55009CB0CF /* ViewControllers */,
 				6070D30A1EA7019D00BD6954 /* AppDelegate.h */,
@@ -322,6 +333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601FB4BE1EA88D8E00F5D309 /* 电音之王.mp3 in Resources */,
 				6070D3171EA7019D00BD6954 /* LaunchScreen.storyboard in Resources */,
 				6070D3141EA7019D00BD6954 /* Assets.xcassets in Resources */,
 				6070D3121EA7019D00BD6954 /* Main.storyboard in Resources */,
