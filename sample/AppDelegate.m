@@ -25,8 +25,11 @@
     tabBarController.selectedIndex = 0;
     [self.window makeKeyAndVisible];
     [self setupAppearance];
+    [self setup3DTouch];
     return YES;
 }
+
+#pragma mark - setupAppearance
 
 - (void)setupAppearance {
     // 导航栏全局属性设置：背景、左右标题的文字、标题文字
@@ -42,6 +45,20 @@
     [[UINavigationBar appearance] setBackIndicatorImage:backImage];
     [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:backImage];
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+}
+
+#pragma mark - setup3DTouch
+
+- (void)setup3DTouch {
+    UIApplicationShortcutItem *item1 = [[UIApplicationShortcutItem alloc]initWithType:@"item1类型" localizedTitle:@"点击播放" localizedSubtitle:@"电音之王" icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypePlay] userInfo:nil];
+    
+    UIApplicationShortcutItem *item2 = [[UIApplicationShortcutItem alloc]initWithType:@"item2类型" localizedTitle:@"添加" localizedSubtitle:@"新的心跳" icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
+    
+    UIApplicationShortcutItem *item3 = [[UIApplicationShortcutItem alloc]initWithType:@"item3类型" localizedTitle:@"分享" localizedSubtitle:@"迷迭香" icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeShare] userInfo:nil];
+    
+    UIApplicationShortcutItem *item4 = [[UIApplicationShortcutItem alloc]initWithType:@"item4类型" localizedTitle:@"返回主页" localizedSubtitle:@"主页" icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeHome] userInfo:nil];
+    NSArray *arr = [[NSArray alloc]initWithObjects:item4, item3, item2, item1, nil];
+    [[UIApplication sharedApplication] setShortcutItems:arr];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
