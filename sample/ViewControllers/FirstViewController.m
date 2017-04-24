@@ -40,6 +40,9 @@ typedef NS_ENUM(NSInteger, RotateState){
     self.view.backgroundColor = [UIColor redColor];
     self.title = @"微信";
     [self setupRightBarButtonItem];
+    NSString *dateStr = [self currentDateWithFormatter:@"EEEE"];
+    NSLog(@"dateStr is :%@", dateStr);
+
 }
 
 #pragma mark - setupRightBarButtonItem
@@ -107,6 +110,16 @@ typedef NS_ENUM(NSInteger, RotateState){
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.navigationController pushViewController:[MusicViewController new] animated:YES];
 
+}
+
+#pragma mark - 判读当前是周几
+
+- (NSString *)currentDateWithFormatter:(NSString *)formatter {
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
+    [dateformatter setDateFormat:formatter];
+    NSString *weekString = [dateformatter stringFromDate:date];
+    return weekString;
 }
 
 - (void)didReceiveMemoryWarning {
